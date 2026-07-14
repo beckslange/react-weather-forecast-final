@@ -1,5 +1,6 @@
-function App() {
-  return <div className="App"></div>;
-}
+import Weather from "./Weather";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default App;
+export default function App() {
+  return <Weather />;
+}
