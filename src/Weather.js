@@ -60,7 +60,7 @@ export default function Weather(props) {
             />
 
             <div className="temperature-container">
-              <span className="temperature">{weatherData.temperature}</span>
+              <span className="current-temp">{weatherData.temperature}</span>
 
               <span className="unit ms-1">°F</span>
             </div>
