@@ -1,0 +1,33 @@
+.Weather {
+  border: 1px solid #5a5c5e;
+  max-width: 700px;
+  padding: 16px;
+  margin: 30px auto;
+  border-radius: 4px;
+  width: (100% - 32px);
+  color: rgb(135, 135, 135);
+}
+
+.city-name {
+  font-size: 50px;
+}
+
+.weather-icon {
+  height: 90px;
+  width: 90px;
+}
+
+.current-temp {
+  font-size: 90px;
+  color: #5e5757;
+}
+
+.unit {
+  position: relative;
+  top: -20px;
+  font-size: 24px;
+}
+
+.conditions {
+  font-size: 19px;
+}
