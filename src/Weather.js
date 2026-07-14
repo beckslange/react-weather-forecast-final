@@ -1,11 +1,25 @@
 import React from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import useWeatherInfo from "./useWeatherInfo";
 
-export default function Weather() {
+export default function Weather(props) {
+  const { weatherData, city, error, searchCity, updateCity } = useWeatherInfo(
+    props.defaultCity
+  );
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    searchCity(city);
+  }
+
+  if (weatherData === null) {
+    return <p className="text-center">Loading...</p>;
+  }
+
   return (
     <div className="Weather">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-9">
             <input
@@ -14,8 +28,11 @@ export default function Weather() {
               className="form-control form-control-lg"
               required
               autoFocus
+              value={city}
+              onChange={updateCity}
             />
           </div>
+
           <div className="col-3">
             <input
               type="submit"
@@ -26,18 +43,25 @@ export default function Weather() {
         </div>
       </form>
 
-      <h1 className="city-name">New York</h1>
-      <ul className="list-unstyled">Monday 07:00</ul>
+      {error && <p className="text-danger mt-2">{error}</p>}
 
-      <div className="row">
+      <h1 className="city-name">{weatherData.city}</h1>
+
+      <ul className="list-unstyled">
+        <li>{weatherData.time}</li>
+      </ul>
+
+      <div className="row mt-3">
         <div className="col-6">
           <div className="d-flex align-items-center">
             <img
-              src="https://www.gstatic.com/weather/conditions/v1/svg/mostly_cloudy_day_light.svg"
-              alt="weather-description"
+              src={weatherData.iconURL}
+              alt={weatherData.description}
               className="weather-icon me-2"
             />
-            <span className="current-temp">97</span>
+
+            <span className="current-temp">{weatherData.temperature}</span>
+
             <span className="unit ms-1">°F</span>
           </div>
         </div>
@@ -45,9 +69,9 @@ export default function Weather() {
         <div className="col-6 mt-2">
           <div className="conditions">
             <ul className="list-unstyled">
-              <li>Clear Sky</li>
-              <li>Humidity</li>
-              <li>Wind</li>
+              <li>{weatherData.description}</li>
+              <li>Humidity: {weatherData.humidity}%</li>
+              <li>Wind: {weatherData.wind} mph</li>
             </ul>
           </div>
         </div>
