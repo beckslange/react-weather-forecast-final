@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import useWeatherInfo from "./useWeatherInfo";
 
 export default function Weather(props) {
-  const { weatherData, city, error, searchCity, updateCity } = useWeatherInfo(
+  const { weatherData, city, searchCity, updateCity } = useWeatherInfo(
     props.defaultCity
   );
 
@@ -14,7 +14,9 @@ export default function Weather(props) {
   }
 
   if (weatherData === null) {
-    return <p className="text-center">Loading...</p>;
+    searchCity(props.defaultCity);
+
+    return <p>Loading...</p>;
   }
 
   return (
@@ -25,10 +27,9 @@ export default function Weather(props) {
             <input
               type="search"
               placeholder="Enter a city..."
-              className="form-control form-control-lg"
               required
+              className="form-control"
               autoFocus
-              value={city}
               onChange={updateCity}
             />
           </div>
@@ -37,13 +38,11 @@ export default function Weather(props) {
             <input
               type="submit"
               value="Search"
-              className="btn btn-primary btn-lg w-100"
+              className="btn btn-primary w-100"
             />
           </div>
         </div>
       </form>
-
-      {error && <p className="text-danger mt-2">{error}</p>}
 
       <h1 className="city-name">{weatherData.city}</h1>
 
@@ -60,20 +59,20 @@ export default function Weather(props) {
               className="weather-icon me-2"
             />
 
-            <span className="current-temp">{weatherData.temperature}</span>
+            <div className="temperature-container">
+              <span className="temperature">{weatherData.temperature}</span>
 
-            <span className="unit ms-1">°F</span>
+              <span className="unit ms-1">°F</span>
+            </div>
           </div>
         </div>
 
-        <div className="col-6 mt-2">
-          <div className="conditions">
-            <ul className="list-unstyled">
-              <li>{weatherData.description}</li>
-              <li>Humidity: {weatherData.humidity}%</li>
-              <li>Wind: {weatherData.wind} mph</li>
-            </ul>
-          </div>
+        <div className="col-6">
+          <ul className="list-unstyled">
+            <li>{weatherData.description}</li>
+            <li>Humidity: {weatherData.humidity}%</li>
+            <li>Wind: {weatherData.wind} mph</li>
+          </ul>
         </div>
       </div>
     </div>

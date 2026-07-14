@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export default function useWeatherInfo(defaultCity) {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState(defaultCity);
-  const [error, setError] = useState(null);
 
   function formatDate(timestamp) {
     let date = new Date(timestamp * 1000);
@@ -52,28 +51,16 @@ export default function useWeatherInfo(defaultCity) {
 
     let apiURL = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=imperial`;
 
-    setError(null);
-
-    axios
-      .get(apiURL)
-      .then(refreshWeather)
-      .catch(() => {
-        setError("Unable to find that city. Please try again.");
-      });
+    axios.get(apiURL).then(refreshWeather);
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-  useEffect(() => {
-    searchCity(defaultCity);
-  }, [defaultCity]);
-
   return {
     weatherData,
     city,
-    error,
     searchCity,
     updateCity,
   };
