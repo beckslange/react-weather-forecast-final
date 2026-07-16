@@ -2,6 +2,7 @@ import React from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useWeatherInfo from "./useWeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const { weatherData, city, searchCity, updateCity } = useWeatherInfo(
@@ -78,6 +79,8 @@ export default function Weather(props) {
           </div>
         </div>
       </div>
+
+      <WeatherForecast city={weatherData.city} />
     </div>
   );
 }

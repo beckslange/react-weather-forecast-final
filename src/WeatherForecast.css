@@ -1,0 +1,34 @@
+.WeatherForecast {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+}
+
+.forecast-day {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.forecast-icon {
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 5px auto;
+}
+
+.forecast-temperatures {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.forecast-temperature-max {
+  font-weight: 600;
+}
+
+.forecast-temperature-min {
+  opacity: 0.6;
+}
+
+.forecast-loading {
+  margin-top: 20px;
+  text-align: center;
+}
