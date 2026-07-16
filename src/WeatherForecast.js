@@ -24,7 +24,7 @@ export default function WeatherForecast(props) {
 
   return (
     <div className="WeatherForecast mt-4">
-      <div className="row row-cols-5 text-center">
+      <div className="row row-cols-5 g-1 text-center">
         {forecast.slice(0, 5).map(function (dailyForecast) {
           return (
             <div className="col" key={dailyForecast.time}>

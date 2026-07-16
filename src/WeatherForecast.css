@@ -1,11 +1,13 @@
 .WeatherForecast {
   border-top: 1px solid #f0f0f0;
   padding-top: 20px;
+  overflow: hidden;
 }
 
 .forecast-day {
   font-size: 16px;
   font-weight: 500;
+  min-width: 0;
 }
 
 .forecast-icon {
@@ -17,6 +19,10 @@
 
 .forecast-temperatures {
   font-size: 15px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
   white-space: nowrap;
 }
 
@@ -31,4 +37,20 @@
 .forecast-loading {
   margin-top: 20px;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .forecast-day {
+    font-size: 13px;
+  }
+
+  .forecast-icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  .forecast-temperatures {
+    font-size: 13px;
+    gap: 2px;
+  }
 }

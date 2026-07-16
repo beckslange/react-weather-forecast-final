@@ -1,10 +1,10 @@
 .Weather {
   border: 1px solid #5a5c5e;
-  max-width: 700px;
+  max-width: 650px;
   padding: 16px;
   margin: 30px auto;
   border-radius: 4px;
-  width: (100% - 32px);
+  width: 100%;
   color: rgb(135, 135, 135);
 }
 
@@ -30,4 +30,37 @@
 
 .conditions {
   font-size: 19px;
+}
+
+footer {
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .Weather {
+    margin: 15px auto;
+    padding: 12px;
+  }
+
+  .Weather h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .Weather .current-temp {
+    font-size: 52px;
+  }
+
+  .Weather .weather-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  footer {
+    font-size: 10px;
+    line-height: 1.5;
+    white-space: normal;
+  }
 }

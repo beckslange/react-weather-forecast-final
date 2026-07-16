@@ -4,10 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
     <div className="App">
-      <div className="container-fluid px-2">
+      <div className="container-fluid px-3">
         <Weather defaultCity="New York" />
 
-        <footer className="text-center">
+        <footer className="text-center mt-3 px-2">
           This project was coded by{" "}
           <a
             href="https://www.linkedin.com/in/rebecca-lange-804b8b111/"

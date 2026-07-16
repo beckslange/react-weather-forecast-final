@@ -23,8 +23,8 @@ export default function Weather(props) {
   return (
     <div className="Weather">
       <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-9">
+        <div className="row g-2">
+          <div className=" col-12 col-sm-9">
             <input
               type="search"
               placeholder="Enter a city..."
@@ -36,7 +36,7 @@ export default function Weather(props) {
             />
           </div>
 
-          <div className="col-3">
+          <div className="col-12 col-sm-3">
             <input
               type="submit"
               value="Search"
@@ -52,9 +52,9 @@ export default function Weather(props) {
         <li>{weatherData.time}</li>
       </ul>
 
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="d-flex align-items-center">
+      <div className="row mt-4 align-items-center">
+        <div className="col-12 col-sm-6">
+          <div className="d-flex align-items-center justify-content-center justify-content-sm-start">
             <img
               src={weatherData.iconURL}
               alt={weatherData.description}
@@ -69,9 +69,9 @@ export default function Weather(props) {
           </div>
         </div>
 
-        <div className="col-6 mt-2">
+        <div className="col-12 col-sm-6 mt-3 mt-sm-0">
           <div className="conditions">
-            <ul className="list-unstyled">
+            <ul className="list-unstyled text-center text-sm-start mb-0">
               <li>{weatherData.description}</li>
               <li>Humidity: {weatherData.humidity}%</li>
               <li>Wind: {weatherData.wind} mph</li>

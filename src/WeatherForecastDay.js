@@ -11,22 +11,24 @@ export default function WeatherForecastDay(props) {
 
   return (
     <div className="WeatherForecastDay">
-      <div className="forecast-day">{formatDay(props.data.time)}</div>
+      <div className="col">
+        <div className="forecast-day">{formatDay(props.data.time)}</div>
 
-      <img
-        src={props.data.condition.icon_url}
-        alt={props.data.condition.description}
-        className="forecast-icon"
-      />
+        <img
+          src={props.data.condition.icon_url}
+          alt={props.data.condition.description}
+          className="forecast-icon"
+        />
 
-      <div className="forecast-temperatures">
-        <span className="forecast-temperature-max">
-          {Math.round(props.data.temperature.maximum)}°F
-        </span>
-        <span> | </span>
-        <span className="forecast-temperature-min">
-          {Math.round(props.data.temperature.minimum)}°F
-        </span>
+        <div className="forecast-temperatures">
+          <span className="forecast-temperature-max">
+            {Math.round(props.data.temperature.maximum)}°F
+          </span>
+          <span> | </span>
+          <span className="forecast-temperature-min">
+            {Math.round(props.data.temperature.minimum)}°F
+          </span>
+        </div>
       </div>
     </div>
   );
