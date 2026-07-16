@@ -14,8 +14,8 @@ export default function WeatherForecastDay(props) {
       <div className="forecast-day">{formatDay(props.data.time)}</div>
 
       <img
-        src="{response.data.condition.icon_url}"
-        alt="{response.data.condition.description}"
+        src={props.data.condition.icon_url}
+        alt={props.data.condition.description}
         className="forecast-icon"
       />
 
@@ -23,6 +23,7 @@ export default function WeatherForecastDay(props) {
         <span className="forecast-temperature-max">
           {Math.round(props.data.temperature.maximum)}°F
         </span>
+        <span> | </span>
         <span className="forecast-temperature-min">
           {Math.round(props.data.temperature.minimum)}°F
         </span>
